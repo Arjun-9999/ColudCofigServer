@@ -1,11 +1,9 @@
-
 eureka:
+  instance:
+    prefer-ip-address: true      # registers IP instead of hostname
+
   client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-management:
-  tracing:
-    sampling:
-      probability: 1.0
-      
-      
+    register-with-eureka: true   # tells this app to register itself with Eureka
+    fetch-registry: true         # tells this app to fetch other registered services
+    service-url:
+      defaultZone: http://localhost:8761/eureka/  # Eureka server URL
